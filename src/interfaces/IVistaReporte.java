@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author mburgos
  */
-public interface IVistaReporte {
+public interface IVistaReporte extends IVista {
     public void cargarDatos(ArrayList items);
     public void setPacientesMayores(int cantidad);
     public void setPacientesMenores(int cantidad);

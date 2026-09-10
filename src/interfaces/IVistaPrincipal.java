@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author mburgos
  */
-public interface IVistaPrincipal {
+public interface IVistaPrincipal extends IVista {
     public static final String BTN_ATENCION = "BTN_ATENCION";
     public static final String BTN_PACIENTE = "BTN_PACIENTE";
     public static final String BTN_REPORTE = "BTN_REPORTE";

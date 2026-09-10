@@ -9,7 +9,7 @@ package interfaces;
  *
  * @author mburgos
  */
-public interface IVistaAddAtencion {
+public interface IVistaAddAtencion extends IVista {
     public static final String BTN_ADD_ATENCION = "BTN_ADD_ATENCION";
     
     public String getDni();

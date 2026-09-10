@@ -5,11 +5,15 @@
  */
 package vistas;
 
+import controlador.Controlador;
+import interfaces.IVistaPrincipal;
+import java.util.ArrayList;
+
 /**
  *
  * @author mburgos
  */
-public class VistaPrincipal extends javax.swing.JFrame {
+public class VistaPrincipal extends javax.swing.JFrame implements IVistaPrincipal {
 
     /**
      * Creates new form VistaPrincipal
@@ -140,4 +144,19 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void cargarHistorialAtencion(ArrayList<Object[]> items) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void inicializar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setControlador(Controlador controlador) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

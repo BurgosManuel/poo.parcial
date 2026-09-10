@@ -5,11 +5,15 @@
  */
 package vistas;
 
+import controlador.Controlador;
+import interfaces.IVistaReporte;
+import java.util.ArrayList;
+
 /**
  *
  * @author mburgos
  */
-public class VistaReporte extends javax.swing.JDialog {
+public class VistaReporte extends javax.swing.JDialog implements IVistaReporte {
 
     /**
      * Creates new form VistaReporte
@@ -193,4 +197,39 @@ public class VistaReporte extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void cargarDatos(ArrayList items) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setPacientesMayores(int cantidad) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setPacientesMenores(int cantidad) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setPacientesMasculinos(int cantidad) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setPacientesFemeninos(int cantidad) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void inicializar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setControlador(Controlador controlador) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

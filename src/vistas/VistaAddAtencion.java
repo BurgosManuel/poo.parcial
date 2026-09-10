@@ -5,11 +5,14 @@
  */
 package vistas;
 
+import controlador.Controlador;
+import interfaces.IVistaAddAtencion;
+
 /**
  *
  * @author mburgos
  */
-public class VistaAddAtencion extends javax.swing.JDialog {
+public class VistaAddAtencion extends javax.swing.JDialog implements IVistaAddAtencion{
 
     /**
      * Creates new form VistaAddAtencion
@@ -158,4 +161,29 @@ public class VistaAddAtencion extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public String getDni() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getEspecialidad() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void limpiar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void inicializar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setControlador(Controlador controlador) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
