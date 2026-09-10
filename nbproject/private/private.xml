@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/vistas/VistaAddPaciente.java</file>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/dao/DAOAtencion.java</file>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/interfaces/IVista.java</file>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/vistas/VistaPaciente.java</file>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/modelo/Atencion.java</file>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/vistas/VistaReporte.java</file>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/vistas/VistaPrincipal.java</file>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/programa/Principal.java</file>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/interfaces/IVistaReporte.java</file>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/modelo/Persona.java</file>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/interfaces/IVistaAddAtencion.java</file>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/modelo/Paciente.java</file>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/controlador/Controlador.java</file>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/interfaces/IVistaPaciente.java</file>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/dao/DAOPaciente.java</file>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/vistas/VistaAddAtencion.java</file>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/dao/Conector.java</file>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/interfaces/IVistaAddPaciente.java</file>
+            <file>file:/home/mburgos/NetBeansProjects/poo.parcial/src/interfaces/IVistaPrincipal.java</file>
+        </group>
+    </open-files>
+</project-private>
