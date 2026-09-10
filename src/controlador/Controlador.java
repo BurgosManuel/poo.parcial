@@ -62,6 +62,10 @@ public class Controlador implements ActionListener {
         if(IVistaAddAtencion.BTN_ADD_ATENCION.equalsIgnoreCase(e.getActionCommand())) {
             guardarAtencion();
         }
+        
+        if(IVistaAddPaciente.BTN_ADD_PACIENTE.equalsIgnoreCase(e.getActionCommand())) {
+            guardarPaciente();
+        }
     }
     
     private void guardarAtencion() {
@@ -75,5 +79,17 @@ public class Controlador implements ActionListener {
         
         historialAtencion.add(a); // dao.guardarAtencion();
         vistaAddAtencion.limpiar();
+    }
+    
+    private void guardarPaciente() {
+        Paciente p = new Paciente();
+        p.setDni(vistaAddPaciente.getDni());
+        p.setNombre(vistaAddPaciente.getNombre());
+        p.setEdad(vistaAddPaciente.getEdad());
+        p.setSexo(vistaAddPaciente.getSexo());
+        p.setObraSocial(vistaAddPaciente.getObraSocial());
+        
+        vistaAddPaciente.limpiar();
+        pacientes.add(p); //dao.guardarPaciente();
     }
 }

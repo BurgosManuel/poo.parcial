@@ -253,41 +253,46 @@ public class VistaAddPaciente extends javax.swing.JDialog implements IVistaAddPa
 
     @Override
     public String getDni() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.jTextField1.getText();
     }
 
     @Override
     public String getNombre() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.jTextField2.getText();
     }
 
     @Override
     public int getEdad() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return Integer.valueOf(this.jTextField3.getText());
     }
 
     @Override
     public char getSexo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.jTextField4.getText().charAt(0);
     }
 
     @Override
     public String getObraSocial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.jTextField5.getText();
     }
 
     @Override
     public void limpiar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.jTextField1.setText("");
+        this.jTextField2.setText("");
+        this.jTextField3.setText("");
+        this.jTextField4.setText("");
+        this.jTextField5.setText("");
     }
 
     @Override
     public void inicializar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.setVisible(true);
     }
 
     @Override
     public void setControlador(Controlador controlador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.jButton1.addActionListener(controlador);
+        this.jButton1.setActionCommand(BTN_ADD_PACIENTE);
     }
 }
