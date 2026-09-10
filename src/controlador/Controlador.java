@@ -7,6 +7,7 @@ package controlador;
 
 import interfaces.IVistaAddAtencion;
 import interfaces.IVistaAddPaciente;
+import interfaces.IVistaPaciente;
 import interfaces.IVistaPrincipal;
 import interfaces.IVistaReporte;
 import java.awt.event.ActionEvent;
@@ -20,6 +21,7 @@ import modelo.Atencion;
 import modelo.Paciente;
 import vistas.VistaAddAtencion;
 import vistas.VistaAddPaciente;
+import vistas.VistaPaciente;
 import vistas.VistaPrincipal;
 import vistas.VistaReporte;
 
@@ -34,12 +36,14 @@ public class Controlador implements ActionListener {
    
     // Vistas
     private IVistaPrincipal vistaPrincipal = new VistaPrincipal();
+    private IVistaPaciente vistaPaciente = new VistaPaciente(null, true);
     private IVistaAddPaciente vistaAddPaciente = new VistaAddPaciente(null, true);
     private IVistaAddAtencion vistaAddAtencion = new VistaAddAtencion(null, true);
     private IVistaReporte vistaReporte = new VistaReporte(null, true);
     
     public void inicializar() {
         vistaPrincipal.setControlador(this);
+        vistaPaciente.setControlador(this);
         vistaAddPaciente.setControlador(this);
         vistaAddAtencion.setControlador(this);
         vistaReporte.setControlador(this);
@@ -55,7 +59,8 @@ public class Controlador implements ActionListener {
         }
         
         if(IVistaPrincipal.BTN_PACIENTE.equalsIgnoreCase(e.getActionCommand())) {
-            vistaAddPaciente.inicializar();
+            actualizarVistaPaciente();
+            vistaPaciente.inicializar();
         }
         
         if(IVistaPrincipal.BTN_REPORTE.equalsIgnoreCase(e.getActionCommand())) {
@@ -68,8 +73,13 @@ public class Controlador implements ActionListener {
             actualizarVistaPrincipal();
         }
         
+        if(IVistaPaciente.BTN_INIT_ADD_PACIENTE.equalsIgnoreCase(e.getActionCommand())) {
+            vistaAddPaciente.inicializar();
+        }
+        
         if(IVistaAddPaciente.BTN_ADD_PACIENTE.equalsIgnoreCase(e.getActionCommand())) {
             guardarPaciente();
+            actualizarVistaPaciente();
         }
     }
     
@@ -93,6 +103,7 @@ public class Controlador implements ActionListener {
         p.setEdad(vistaAddPaciente.getEdad());
         p.setSexo(vistaAddPaciente.getSexo());
         p.setObraSocial(vistaAddPaciente.getObraSocial());
+        p.setFecRegistro(LocalDate.now());
         
         vistaAddPaciente.limpiar();
         pacientes.add(p); //dao.guardarPaciente();
@@ -156,5 +167,21 @@ public class Controlador implements ActionListener {
             items.add(row);
         }
         vistaPrincipal.cargarHistorialAtencion(items);
+    }
+    
+    private void actualizarVistaPaciente() {
+        List<Object[]> items = new ArrayList();
+        for(Paciente p : pacientes) {
+            Object[] row = new Object[6];
+            row[0] = p.getDni();
+            row[1] = p.getNombre();
+            row[2] = p.getEdad();
+            row[3] = p.getSexo();
+            row[4] = p.getObraSocial();
+            row[5] = p.getFecRegistro();
+            
+            items.add(row);
+        }
+        vistaPaciente.cargarDatos(items);
     }
 }
