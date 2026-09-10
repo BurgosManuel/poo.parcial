@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import dao.Conector;
 import interfaces.IVistaAddAtencion;
 import interfaces.IVistaAddPaciente;
 import interfaces.IVistaPaciente;
@@ -41,7 +42,12 @@ public class Controlador implements ActionListener {
     private IVistaAddAtencion vistaAddAtencion = new VistaAddAtencion(null, true);
     private IVistaReporte vistaReporte = new VistaReporte(null, true);
     
+    // DAO
+    private Conector conector = new Conector();
+    
     public void inicializar() {
+        conector.getConexion();
+        
         vistaPrincipal.setControlador(this);
         vistaPaciente.setControlador(this);
         vistaAddPaciente.setControlador(this);
