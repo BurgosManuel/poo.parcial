@@ -47,7 +47,33 @@ public class Controlador implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(IVistaPrincipal.BTN_ATENCION.equalsIgnoreCase(e.getActionCommand())) {
+            vistaAddAtencion.inicializar();
+        }
+        
+        if(IVistaPrincipal.BTN_PACIENTE.equalsIgnoreCase(e.getActionCommand())) {
+            vistaAddPaciente.inicializar();
+        }
+        
+        if(IVistaPrincipal.BTN_REPORTE.equalsIgnoreCase(e.getActionCommand())) {
+            vistaReporte.inicializar();
+        }
+        
+        if(IVistaAddAtencion.BTN_ADD_ATENCION.equalsIgnoreCase(e.getActionCommand())) {
+            guardarAtencion();
+        }
     }
     
+    private void guardarAtencion() {
+        Atencion a = new Atencion();
+        Paciente p = new Paciente(); // dao.getPaciente(dni);
+        p.setDni(vistaAddAtencion.getDni());
+        
+        a.setPaciente(p);
+        a.setEspecialidad(vistaAddAtencion.getEspecialidad());
+        a.setFecha(LocalDate.now());
+        
+        historialAtencion.add(a); // dao.guardarAtencion();
+        vistaAddAtencion.limpiar();
+    }
 }

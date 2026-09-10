@@ -164,26 +164,28 @@ public class VistaAddAtencion extends javax.swing.JDialog implements IVistaAddAt
 
     @Override
     public String getDni() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.jTextField1.getText();
     }
 
     @Override
     public String getEspecialidad() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (String) this.jComboBox1.getSelectedItem();
     }
 
     @Override
     public void limpiar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.jTextField1.setText("");
+        this.jComboBox1.setSelectedIndex(0);
     }
 
     @Override
     public void inicializar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.setVisible(true);
     }
 
     @Override
     public void setControlador(Controlador controlador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.jButton1.addActionListener(controlador);
+        this.jButton1.setActionCommand(BTN_ADD_ATENCION);
     }
 }
