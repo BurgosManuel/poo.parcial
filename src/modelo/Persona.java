@@ -13,7 +13,7 @@ public class Persona {
     private String dni;
     private String nombre;
     private int edad;
-    private char sexo; // M o F
+    private String sexo; // M o F
     
     public boolean esMayorEdad() {
         return edad >= 18;
@@ -43,11 +43,11 @@ public class Persona {
         this.edad = edad;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
     

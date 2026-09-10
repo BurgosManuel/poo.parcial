@@ -6,6 +6,8 @@
 package controlador;
 
 import dao.Conector;
+import dao.DAOAtencion;
+import dao.DAOPaciente;
 import interfaces.IVistaAddAtencion;
 import interfaces.IVistaAddPaciente;
 import interfaces.IVistaPaciente;
@@ -44,6 +46,8 @@ public class Controlador implements ActionListener {
     
     // DAO
     private Conector conector = new Conector();
+    private DAOPaciente daoPaciente = new DAOPaciente(conector, pacientes);
+    private DAOAtencion daoAtencion = new DAOAtencion(conector, historialAtencion);
     
     public void inicializar() {
         conector.getConexion();
@@ -54,6 +58,11 @@ public class Controlador implements ActionListener {
         vistaAddAtencion.setControlador(this);
         vistaReporte.setControlador(this);
         
+        // Cargamos datos
+        daoPaciente.cargarPacientes();
+        daoAtencion.cargarHistorialAtencion();
+        
+        // Inicializamos vistas
         actualizarVistaPrincipal();
         vistaPrincipal.inicializar();
     };
@@ -91,8 +100,12 @@ public class Controlador implements ActionListener {
     
     private void guardarAtencion() {
         Atencion a = new Atencion();
-        Paciente p = new Paciente(); // dao.getPaciente(dni);
-        p.setDni(vistaAddAtencion.getDni());
+        Paciente p = daoPaciente.getPaciente(vistaAddAtencion.getDni());
+        
+        if(null == p) {
+            System.out.println("Paciente no existe, omitiendo guardado de Atencion.");
+            return;
+        }
         
         a.setPaciente(p);
         a.setEspecialidad(vistaAddAtencion.getEspecialidad());
@@ -100,6 +113,7 @@ public class Controlador implements ActionListener {
         
         historialAtencion.add(a); // dao.guardarAtencion();
         vistaAddAtencion.limpiar();
+        daoAtencion.guardarAtencion(a);
     }
     
     private void guardarPaciente() {
@@ -113,6 +127,7 @@ public class Controlador implements ActionListener {
         
         vistaAddPaciente.limpiar();
         pacientes.add(p); //dao.guardarPaciente();
+        daoPaciente.guardarPaciente(p);
     }
     
     private void generarReporte() {
@@ -129,7 +144,7 @@ public class Controlador implements ActionListener {
                 cantMenores++;
             }
             
-            if('M' == p.getSexo()) {
+            if("M".equalsIgnoreCase(p.getSexo())) {
                 cantMasc++;
             } else {
                 cantFem++;

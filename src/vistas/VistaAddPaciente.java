@@ -267,8 +267,8 @@ public class VistaAddPaciente extends javax.swing.JDialog implements IVistaAddPa
     }
 
     @Override
-    public char getSexo() {
-        return this.jTextField4.getText().charAt(0);
+    public String getSexo() {
+        return this.jTextField4.getText();
     }
 
     @Override

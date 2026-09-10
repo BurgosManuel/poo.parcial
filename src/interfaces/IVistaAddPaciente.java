@@ -15,7 +15,7 @@ public interface IVistaAddPaciente extends IVista {
     public String getDni();
     public String getNombre();
     public int getEdad();
-    public char getSexo();
+    public String getSexo();
     public String getObraSocial();
     public void limpiar();
 }
