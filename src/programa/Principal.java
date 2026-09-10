@@ -5,6 +5,8 @@
  */
 package programa;
 
+import controlador.Controlador;
+
 /**
  *
  * @author mburgos
@@ -18,6 +20,9 @@ public class Principal {
         System.out.println("PRIMER PARCIAL - PARADIGMAS 2K3 2026");
         System.out.println("Legajo: 64522");
         System.out.println("Alumno: Burgos Sergio Manuel");
+        
+        Controlador controlador = new Controlador();
+        controlador.inicializar();
     }
     
 }
