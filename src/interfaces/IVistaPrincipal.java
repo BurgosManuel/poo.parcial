@@ -5,7 +5,7 @@
  */
 package interfaces;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,5 +16,5 @@ public interface IVistaPrincipal extends IVista {
     public static final String BTN_PACIENTE = "BTN_PACIENTE";
     public static final String BTN_REPORTE = "BTN_REPORTE";
     
-    public void cargarHistorialAtencion(ArrayList<Object[]> items);
+    public void cargarHistorialAtencion(List<Object[]> items);
 }

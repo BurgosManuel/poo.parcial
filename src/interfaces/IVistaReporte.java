@@ -5,14 +5,14 @@
  */
 package interfaces;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author mburgos
  */
 public interface IVistaReporte extends IVista {
-    public void cargarDatos(ArrayList items);
+    public void cargarDatos(List<Object[]> items);
     public void setPacientesMayores(int cantidad);
     public void setPacientesMenores(int cantidad);
     public void setPacientesMasculinos(int cantidad);

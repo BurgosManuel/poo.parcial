@@ -7,7 +7,7 @@ package vistas;
 
 import controlador.Controlador;
 import interfaces.IVistaReporte;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -199,7 +199,7 @@ public class VistaReporte extends javax.swing.JDialog implements IVistaReporte {
     // End of variables declaration//GEN-END:variables
 
     @Override
-    public void cargarDatos(ArrayList items) {
+    public void cargarDatos(List<Object[]> items) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

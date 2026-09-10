@@ -11,6 +11,7 @@ import interfaces.IVistaPrincipal;
 import interfaces.IVistaReporte;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.Atencion;

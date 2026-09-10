@@ -8,6 +8,8 @@ package vistas;
 import controlador.Controlador;
 import interfaces.IVistaPrincipal;
 import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -146,17 +148,29 @@ public class VistaPrincipal extends javax.swing.JFrame implements IVistaPrincipa
     // End of variables declaration//GEN-END:variables
 
     @Override
-    public void cargarHistorialAtencion(ArrayList<Object[]> items) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void cargarHistorialAtencion(List<Object[]> items) {
+        DefaultTableModel tableModel = (DefaultTableModel) this.jTable1.getModel();
+        
+        tableModel.setRowCount(0);
+        for(Object[] row : items) {
+            tableModel.addRow(row);
+        }
     }
 
     @Override
     public void inicializar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.setVisible(true);
     }
 
     @Override
     public void setControlador(Controlador controlador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.jButton1.addActionListener(controlador);
+        this.jButton1.setActionCommand(BTN_ATENCION);
+        
+        this.jButton2.addActionListener(controlador);
+        this.jButton2.setActionCommand(BTN_PACIENTE);
+        
+        this.jButton3.addActionListener(controlador);
+        this.jButton3.setActionCommand(BTN_REPORTE);
     }
 }
