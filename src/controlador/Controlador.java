@@ -13,7 +13,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import modelo.Atencion;
 import modelo.Paciente;
 import vistas.VistaAddAtencion;
@@ -42,6 +44,7 @@ public class Controlador implements ActionListener {
         vistaAddAtencion.setControlador(this);
         vistaReporte.setControlador(this);
         
+        actualizarVistaPrincipal();
         vistaPrincipal.inicializar();
     };
 
@@ -56,11 +59,13 @@ public class Controlador implements ActionListener {
         }
         
         if(IVistaPrincipal.BTN_REPORTE.equalsIgnoreCase(e.getActionCommand())) {
+            generarReporte();
             vistaReporte.inicializar();
         }
         
         if(IVistaAddAtencion.BTN_ADD_ATENCION.equalsIgnoreCase(e.getActionCommand())) {
             guardarAtencion();
+            actualizarVistaPrincipal();
         }
         
         if(IVistaAddPaciente.BTN_ADD_PACIENTE.equalsIgnoreCase(e.getActionCommand())) {
@@ -91,5 +96,65 @@ public class Controlador implements ActionListener {
         
         vistaAddPaciente.limpiar();
         pacientes.add(p); //dao.guardarPaciente();
+    }
+    
+    private void generarReporte() {
+        int cantMayores = 0;
+        int cantMenores = 0;
+        int cantMasc = 0;
+        int cantFem = 0;
+        Map<String, Integer> cantEspecialidad = new HashMap();
+        
+        for(Paciente p : pacientes) {
+            if(p.esMayorEdad()) {
+                cantMayores++;
+            } else {
+                cantMenores++;
+            }
+            
+            if('M' == p.getSexo()) {
+                cantMasc++;
+            } else {
+                cantFem++;
+            }
+        }
+        
+        for(Atencion a : historialAtencion) {
+            Integer cant = cantEspecialidad.get(a.getEspecialidad());
+            
+            if(null == cant) {
+                cantEspecialidad.put(a.getEspecialidad(), 1);
+            } else {
+                cantEspecialidad.put(a.getEspecialidad(), cant + 1);
+            }
+        }
+        
+        List<Object[]> items = new ArrayList();
+        
+        // Mapeamos los valores del Map a un Object[]
+        cantEspecialidad.entrySet().forEach(entry -> {
+            Object[] row = new Object[2];
+            row[0] = entry.getKey();
+            row[1] = entry.getValue();
+            items.add(row);
+        });
+        
+        vistaReporte.cargarDatos(items);
+        vistaReporte.setPacientesMayores(cantMayores);
+        vistaReporte.setPacientesMenores(cantMenores);
+        vistaReporte.setPacientesMasculinos(cantMasc);
+        vistaReporte.setPacientesFemeninos(cantFem);
+    }
+    
+    private void actualizarVistaPrincipal() {
+        List<Object[]> items = new ArrayList();
+        for(Atencion a : historialAtencion) {
+            Object[] row = new Object[3];
+            row[0] = a.getPaciente().getDni();
+            row[1] = a.getEspecialidad();
+            row[2] = a.getFecha();
+            items.add(row);
+        }
+        vistaPrincipal.cargarHistorialAtencion(items);
     }
 }

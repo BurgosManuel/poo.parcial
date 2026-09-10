@@ -8,6 +8,7 @@ package vistas;
 import controlador.Controlador;
 import interfaces.IVistaReporte;
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -200,36 +201,40 @@ public class VistaReporte extends javax.swing.JDialog implements IVistaReporte {
 
     @Override
     public void cargarDatos(List<Object[]> items) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        DefaultTableModel tableModel = (DefaultTableModel) this.jTable1.getModel();
+        
+        tableModel.setRowCount(0);
+        for(Object[] row : items) {
+            tableModel.addRow(row);
+        }
     }
 
     @Override
     public void setPacientesMayores(int cantidad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.jTextField1.setText(String.valueOf(cantidad));
     }
 
     @Override
     public void setPacientesMenores(int cantidad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.jTextField2.setText(String.valueOf(cantidad));
     }
 
     @Override
     public void setPacientesMasculinos(int cantidad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.jTextField3.setText(String.valueOf(cantidad));
     }
 
     @Override
     public void setPacientesFemeninos(int cantidad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.jTextField4.setText(String.valueOf(cantidad));
     }
 
     @Override
     public void inicializar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.setVisible(true);
     }
 
     @Override
     public void setControlador(Controlador controlador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
